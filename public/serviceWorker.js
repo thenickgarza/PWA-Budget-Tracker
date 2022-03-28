@@ -30,13 +30,13 @@ e.waitUntil(
 })
 
 // Activates the Servie Worker and deletes old cache
-self.addEventListener('acttivate', function(e) {
+self.addEventListener('activate', function(e) {
     e.waitUntil(
         caches.keys().then(keyList => {
             return Promise.all(
                 keyList.map(key => {
                     if(key !== CACHE_NAME && key !== VERSION) { 
-                        console.log('Removing the old cache', key);
+                        console.log('Deleteing the old cache', key);
                         return caches.delete(key)
                     }
                 })
